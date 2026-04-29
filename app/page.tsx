@@ -123,6 +123,41 @@ function HeroModel() {
           <Vignette offset={0.3} darkness={0.6} />
         </EffectComposer>
       </Canvas>
+      <svg
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 h-full w-full"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+      >
+        <defs>
+          <pattern id="dot-grid" x="0" y="0" width="2.4" height="2.4" patternUnits="userSpaceOnUse">
+            <circle cx="1.2" cy="1.2" r="0.22" fill="var(--ink)" />
+          </pattern>
+        </defs>
+        <path d="M8 8 H32" className="fill-none stroke-[var(--ink-faint)] stroke-[0.22]" />
+        <path d="M8 8 V24" className="fill-none stroke-[var(--ink-faint)] stroke-[0.22]" />
+        <path d="M68 8 H92" className="fill-none stroke-[var(--ink-faint)] stroke-[0.22]" />
+        <path d="M92 8 V24" className="fill-none stroke-[var(--ink-faint)] stroke-[0.22]" />
+        <path d="M8 76 V92" className="fill-none stroke-[var(--ink-faint)] stroke-[0.22]" />
+        <path d="M8 92 H34" className="fill-none stroke-[var(--ink-faint)] stroke-[0.22]" />
+        <path d="M66 92 H92" className="fill-none stroke-[var(--ink-faint)] stroke-[0.22]" />
+        <path d="M92 76 V92" className="fill-none stroke-[var(--ink-faint)] stroke-[0.22]" />
+        <path d="M8 30 H20 V36 H8" className="fill-none stroke-[var(--ink-faint)] stroke-[0.22]" />
+        <path d="M92 30 H80 V36 H92" className="fill-none stroke-[var(--ink-faint)] stroke-[0.22]" />
+        <path d="M8 64 H20 V70 H8" className="fill-none stroke-[var(--ink-faint)] stroke-[0.22]" />
+        <path d="M92 64 H80 V70 H92" className="fill-none stroke-[var(--ink-faint)] stroke-[0.22]" />
+        <rect x="8" y="8" width="84" height="84" rx="4" className="fill-none stroke-[var(--ink-faint)] stroke-[0.18]" />
+        <rect x="12" y="12" width="24" height="11" fill="url(#dot-grid)" opacity="0.85" />
+        <rect x="64" y="12" width="24" height="11" fill="url(#dot-grid)" opacity="0.6" />
+        <rect x="12" y="77" width="26" height="11" fill="url(#dot-grid)" opacity="0.6" />
+        <rect x="62" y="77" width="26" height="11" fill="url(#dot-grid)" opacity="0.85" />
+        <circle cx="18" cy="28" r="2.1" className="fill-none stroke-[var(--coral)] stroke-[0.22]" />
+        <circle cx="82" cy="72" r="2.1" className="fill-none stroke-[var(--coral)] stroke-[0.22]" />
+        <path d="M36 20 H45 L48 24 H55" className="fill-none stroke-[var(--ink-faint)] stroke-[0.22]" />
+        <path d="M45 80 H52 L55 76 H64" className="fill-none stroke-[var(--ink-faint)] stroke-[0.22]" />
+        <path d="M30 50 H39" className="fill-none stroke-[var(--coral)] stroke-[0.22]" />
+        <path d="M61 50 H70" className="fill-none stroke-[var(--coral)] stroke-[0.22]" />
+      </svg>
     </div>
   );
 }
