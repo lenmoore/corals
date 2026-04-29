@@ -27,6 +27,11 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
 }
 
 .page-shell {
@@ -53,12 +58,18 @@ body {
   color: var(--ink);
 }
 
+.quote-copy {
+  font-family: var(--font-quote), "Times New Roman", serif;
+  letter-spacing: 0.01em;
+}
+
 .label-copy {
   font-family: var(--font-label), "Geist Mono", ui-monospace, monospace;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--ink-mute);
+  font-variant-ligatures: none;
 }
 
 .contact-line {
@@ -67,6 +78,7 @@ body {
   letter-spacing: 0.02em;
   text-decoration: none;
   font-variant-caps: all-small-caps;
+  font-variant-ligatures: none;
 }
 
 .hairline {
