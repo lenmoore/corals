@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@400;500&display=swap");
+@import "tailwindcss";
+
+:root {
+  --bg: #0a0a0c;
+  --bg-alt: #111114;
+  --ink: #f2efe9;
+  --ink-mute: #8a867e;
+  --ink-faint: #3a3833;
+  --coral: #fa7268;
+  --coral-glow: #ff9183;
+  --coral-deep: #c4564e;
+  --font-body: "Afacad Flux";
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+.page-shell {
+  width: min(1440px, 100%);
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+.page-section {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--ink-faint);
+}
+
+.display-caps {
+  font-family: var(--font-display), "Archivo Black", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.body-copy {
+  font-family: var(--font-body), system-ui, sans-serif;
+  color: var(--ink);
+}
+
+.label-copy {
+  font-family: var(--font-label), "Geist Mono", ui-monospace, monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-mute);
+}
+
+.contact-line {
+  font-family: var(--font-label), "Geist Mono", ui-monospace, monospace;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  font-variant-caps: all-small-caps;
+}
+
+.hairline {
+  height: 1px;
+  background: var(--ink-faint);
+}
+
+.countdown-pulse {
+  animation: minutePulse 900ms ease-out;
+}
+
+@keyframes minutePulse {
+  0% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .page-shell {
+    padding: 0 24px;
+  }
+}
