@@ -8,8 +8,9 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 
 const EASE_OUT: [number, number, number, number] = [0.22, 1, 0.36, 1];
-const BIRTHDAY_UTC = "2026-05-08T00:00:00Z";
 const EMAIL = "hello@korals.global";
+const MEETING_URL = "https://calendar.app.google/BPQZtVt4LrxVoLkAA";
+const BUSINESS_URL = "https://okredo.com/en-ee/company/korals-ou-17580021";
 
 const CAMERA_FOV = 28;
 const CAMERA_DISTANCE = 4;
@@ -92,13 +93,7 @@ function CoralModel() {
 
 function HeroModel() {
   return (
-    <div
-      className="relative aspect-square w-full overflow-hidden"
-      style={{
-        background:
-          "radial-gradient(circle at 50% 55%, #1A1A1F 0%, #0A0A0C 70%)",
-      }}
-    >
+    <div className="relative h-full w-full overflow-hidden">
       <Canvas
         camera={{ fov: CAMERA_FOV, position: [0, 0.8, CAMERA_DISTANCE] }}
         dpr={[1, 2]}
@@ -123,81 +118,7 @@ function HeroModel() {
           <Vignette offset={0.3} darkness={0.6} />
         </EffectComposer>
       </Canvas>
-      <svg
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 h-full w-full"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="none"
-      >
-        <defs>
-          <pattern id="dot-grid" x="0" y="0" width="2.4" height="2.4" patternUnits="userSpaceOnUse">
-            <circle cx="1.2" cy="1.2" r="0.22" fill="var(--ink)" />
-          </pattern>
-        </defs>
-        <path d="M8 8 H32" className="fill-none stroke-[var(--ink-faint)] stroke-[0.22]" />
-        <path d="M8 8 V24" className="fill-none stroke-[var(--ink-faint)] stroke-[0.22]" />
-        <path d="M68 8 H92" className="fill-none stroke-[var(--ink-faint)] stroke-[0.22]" />
-        <path d="M92 8 V24" className="fill-none stroke-[var(--ink-faint)] stroke-[0.22]" />
-        <path d="M8 76 V92" className="fill-none stroke-[var(--ink-faint)] stroke-[0.22]" />
-        <path d="M8 92 H34" className="fill-none stroke-[var(--ink-faint)] stroke-[0.22]" />
-        <path d="M66 92 H92" className="fill-none stroke-[var(--ink-faint)] stroke-[0.22]" />
-        <path d="M92 76 V92" className="fill-none stroke-[var(--ink-faint)] stroke-[0.22]" />
-        <path d="M8 30 H20 V36 H8" className="fill-none stroke-[var(--ink-faint)] stroke-[0.22]" />
-        <path d="M92 30 H80 V36 H92" className="fill-none stroke-[var(--ink-faint)] stroke-[0.22]" />
-        <path d="M8 64 H20 V70 H8" className="fill-none stroke-[var(--ink-faint)] stroke-[0.22]" />
-        <path d="M92 64 H80 V70 H92" className="fill-none stroke-[var(--ink-faint)] stroke-[0.22]" />
-        <rect x="8" y="8" width="84" height="84" rx="4" className="fill-none stroke-[var(--ink-faint)] stroke-[0.18]" />
-        <rect x="12" y="12" width="24" height="11" fill="url(#dot-grid)" opacity="0.85" />
-        <rect x="64" y="12" width="24" height="11" fill="url(#dot-grid)" opacity="0.6" />
-        <rect x="12" y="77" width="26" height="11" fill="url(#dot-grid)" opacity="0.6" />
-        <rect x="62" y="77" width="26" height="11" fill="url(#dot-grid)" opacity="0.85" />
-        <circle cx="18" cy="28" r="2.1" className="fill-none stroke-[var(--coral)] stroke-[0.22]" />
-        <circle cx="82" cy="72" r="2.1" className="fill-none stroke-[var(--coral)] stroke-[0.22]" />
-        <path d="M36 20 H45 L48 24 H55" className="fill-none stroke-[var(--ink-faint)] stroke-[0.22]" />
-        <path d="M45 80 H52 L55 76 H64" className="fill-none stroke-[var(--ink-faint)] stroke-[0.22]" />
-        <path d="M30 50 H39" className="fill-none stroke-[var(--coral)] stroke-[0.22]" />
-        <path d="M61 50 H70" className="fill-none stroke-[var(--coral)] stroke-[0.22]" />
-      </svg>
     </div>
-  );
-}
-
-function DaysCountdown() {
-  const [daysLeft, setDaysLeft] = useState<number>(0);
-  const [pulseMinute, setPulseMinute] = useState<number>(0);
-
-  useEffect(() => {
-    const target = new Date(BIRTHDAY_UTC).getTime();
-    const msPerDay = 1000 * 60 * 60 * 24;
-
-    const update = () => {
-      const now = Date.now();
-      const remaining = target - now;
-      const nextDays = Math.max(0, Math.ceil(remaining / msPerDay));
-      setDaysLeft(nextDays);
-    };
-
-    update();
-    const intervalId = window.setInterval(() => {
-      update();
-      setPulseMinute((prev) => prev + 1);
-    }, 60000);
-
-    return () => {
-      window.clearInterval(intervalId);
-    };
-  }, []);
-
-  return (
-    <section className="flex flex-col items-start gap-2" aria-live="polite">
-      <p
-        key={pulseMinute}
-        className="display-caps countdown-pulse text-[clamp(4rem,9vw,7.5rem)] leading-none text-[var(--coral)]"
-      >
-        {daysLeft}
-      </p>
-      <p className="label-copy">days until May 8 — David&apos;s 100th</p>
-    </section>
   );
 }
 
@@ -258,32 +179,103 @@ export default function HomePage() {
       >
         skip to main content
       </a>
-      <main id="main-content" className="page-shell">
-        <motion.section
-          ref={sectionRef}
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, ease: EASE_OUT }}
-          className="page-section"
-        >
-          <div className="grid w-full grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-6">
-            <div className="flex flex-col justify-center gap-8 lg:col-span-4">
-              <blockquote className="border-l border-[var(--coral)] pl-5">
-                <p className="body-copy quote-copy text-[clamp(1.15rem,2.2vw,1.6rem)] leading-[1.32]">
-                  After almost 100 years on the planet, I now understand
-                  the most important place on Earth is not on land, but at sea.
-                </p>
-                <footer className="label-copy mt-4">Sir David Attenborough</footer>
-              </blockquote>
-              <DaysCountdown />
-              <EmailCopyLink />
+      <main id="main-content">
+        <section ref={sectionRef} className="relative min-h-svh overflow-hidden">
+          <div
+            aria-hidden="true"
+            className="absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(58% 62% at 70% 50%, #1C1C21 0%, #101014 45%, #0A0A0C 75%)",
+            }}
+          />
+          <div className="absolute inset-y-0 right-0 w-full lg:w-[64%]">
+            <HeroModel />
+          </div>
+
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 hidden lg:block"
+            style={{
+              background:
+                "linear-gradient(100deg, var(--bg) 8%, rgba(10,10,12,0.9) 34%, rgba(10,10,12,0.3) 60%, rgba(10,10,12,0) 78%)",
+            }}
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 lg:hidden"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(10,10,12,0.92) 0%, rgba(10,10,12,0.82) 45%, rgba(10,10,12,0.93) 100%)",
+            }}
+          />
+
+          <div className="pointer-events-none relative mx-auto flex min-h-svh w-[min(1440px,100%)] flex-col justify-between px-6 py-14 lg:px-20 lg:py-16">
+            <motion.a
+              href={BUSINESS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 0.8, ease: EASE_OUT }}
+              className="label-copy pointer-events-auto self-start transition-colors hover:text-[var(--coral)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--ink)]"
+            >
+              korals oü
+            </motion.a>
+
+            <div className="flex max-w-[34rem] flex-col gap-7">
+              <motion.h1
+                initial={{ opacity: 0, y: 18 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
+                transition={{ duration: 0.8, ease: EASE_OUT, delay: 0.1 }}
+                className="flex flex-col"
+              >
+                <span className="display-caps text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[0.92] tracking-[-0.03em] text-[var(--ink)]">
+                  Korals
+                </span>
+                <span className="display-caps text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[0.92] tracking-[-0.03em] text-[var(--coral)]">
+                  Web agency
+                </span>
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 14 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
+                transition={{ duration: 0.8, ease: EASE_OUT, delay: 0.22 }}
+                className="body-copy max-w-[26rem] text-balance text-[clamp(1rem,1.4vw,1.2rem)] leading-[1.5] text-[var(--ink-mute)]"
+              >
+                Web design and development. Launching soon, taking bookings.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 14 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
+                transition={{ duration: 0.8, ease: EASE_OUT, delay: 0.34 }}
+              >
+                <a
+                  href={MEETING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group pointer-events-auto inline-flex items-center gap-3 border-b border-[var(--coral)] pb-2 text-[var(--coral)] transition-colors hover:border-[var(--coral-glow)] hover:text-[var(--coral-glow)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--ink)]"
+                >
+                  <span className="contact-line text-[15px]">book a meeting</span>
+                  <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">
+                    &rarr;
+                  </span>
+                </a>
+              </motion.div>
             </div>
 
-            <div className="relative lg:col-span-8">
-              <HeroModel />
-            </div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 0.8, ease: EASE_OUT, delay: 0.46 }}
+              className="pointer-events-auto self-start"
+            >
+              <EmailCopyLink />
+            </motion.div>
           </div>
-        </motion.section>
+        </section>
       </main>
     </>
   );

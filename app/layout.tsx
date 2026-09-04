@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Archivo_Black, Cormorant_Garamond, JetBrains_Mono } from "next/font/google";
+import { Cormorant_Garamond, JetBrains_Mono, Pathway_Extreme } from "next/font/google";
 import "./globals.css";
 
-const displayFont = Archivo_Black({
+const displayFont = Pathway_Extreme({
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["800"],
   variable: "--font-display",
 });
 
@@ -22,7 +22,7 @@ const quoteFont = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: "KORALS",
-  description: "A coral tribute experience",
+  description: "Web design and development — launching soon, taking bookings",
 };
 
 export default function RootLayout({
