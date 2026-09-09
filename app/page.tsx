@@ -8,7 +8,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 
 const EASE_OUT: [number, number, number, number] = [0.22, 1, 0.36, 1];
-const EMAIL = "hello@korals.global";
+const EMAIL = "helena@korals.global";
 const MEETING_URL = "https://calendar.app.google/BPQZtVt4LrxVoLkAA";
 const BUSINESS_URL = "https://okredo.com/en-ee/company/korals-ou-17580021";
 
