@@ -234,7 +234,7 @@ export default function HomePage() {
                   Korals
                 </span>
                 <span className="display-caps text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[0.92] tracking-[-0.03em] text-[var(--coral)]">
-                  Web agency
+                  Boutique studio
                 </span>
               </motion.h1>
 

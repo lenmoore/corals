@@ -22,7 +22,7 @@ const quoteFont = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: "KORALS",
-  description: "Web design and development — launching soon, taking bookings",
+  description: "A boutique studio for web design and development — launching soon, taking bookings",
 };
 
 export default function RootLayout({
