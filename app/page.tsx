@@ -244,7 +244,7 @@ export default function HomePage() {
                 transition={{ duration: 0.8, ease: EASE_OUT, delay: 0.22 }}
                 className="flex flex-col items-start gap-4"
               >
-                <p className="label-copy">booked until November</p>
+                <p className="label-copy">free from December</p>
                 <a
                   href={MEETING_URL}
                   target="_blank"
