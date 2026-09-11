@@ -49,6 +49,7 @@ body {
 
 .display-caps {
   font-family: var(--font-display), "Pathway Extreme", sans-serif;
+  font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }

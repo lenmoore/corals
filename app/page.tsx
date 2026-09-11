@@ -230,28 +230,21 @@ export default function HomePage() {
                 transition={{ duration: 0.8, ease: EASE_OUT, delay: 0.1 }}
                 className="flex flex-col"
               >
-                <span className="display-caps text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[0.92] tracking-[-0.03em] text-[var(--ink)]">
+                <span className="display-caps font-black text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[0.92] tracking-[-0.03em] text-[var(--coral)]">
                   Korals
                 </span>
-                <span className="display-caps text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[0.92] tracking-[-0.03em] text-[var(--coral)]">
-                  Boutique studio
+                <span className="mt-4 max-w-[26rem] font-(family-name:--font-display) font-black text-[clamp(1.2rem,2.1vw,1.65rem)] leading-[1.25] text-pretty text-[var(--ink)]">
+                  is a boutique web studio for ambitious teams.
                 </span>
               </motion.h1>
-
-              <motion.p
-                initial={{ opacity: 0, y: 14 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
-                transition={{ duration: 0.8, ease: EASE_OUT, delay: 0.22 }}
-                className="body-copy max-w-[26rem] text-balance text-[clamp(1rem,1.4vw,1.2rem)] leading-[1.5] text-[var(--ink-mute)]"
-              >
-                Web design and development. Launching soon, taking bookings.
-              </motion.p>
 
               <motion.div
                 initial={{ opacity: 0, y: 14 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
-                transition={{ duration: 0.8, ease: EASE_OUT, delay: 0.34 }}
+                transition={{ duration: 0.8, ease: EASE_OUT, delay: 0.22 }}
+                className="flex flex-col items-start gap-4"
               >
+                <p className="label-copy">booked until November</p>
                 <a
                   href={MEETING_URL}
                   target="_blank"

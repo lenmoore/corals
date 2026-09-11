@@ -4,7 +4,7 @@ import "./globals.css";
 
 const displayFont = Pathway_Extreme({
   subsets: ["latin"],
-  weight: ["800"],
+  weight: ["900"],
   variable: "--font-display",
 });
 
@@ -22,7 +22,7 @@ const quoteFont = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: "KORALS",
-  description: "A boutique studio for web design and development — launching soon, taking bookings",
+  description: "Korals is a boutique web studio for ambitious teams.",
 };
 
 export default function RootLayout({
